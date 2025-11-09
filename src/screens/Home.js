@@ -28,11 +28,16 @@ export class Home extends Component {
         });
        });
     }
+    irAComentario(data){
+      this.props.navigation.navigate('Comments', {data:data})
+    }
+
+
   render() {
     return (
       <View>
         <Text>Home</Text>
-        <FlatList data={this.state.posts} keyExtractor={(item) => item.id} renderItem={({item}) => <Post data={item.data} id={item.id}/>}/>
+        <FlatList data={this.state.posts} keyExtractor={(item) => item.id} renderItem={({item}) => <Post data={item.data} id={item.id} irAComentario={(data) => this.irAComentario(data)}/>}/>
       </View>
     )
   }

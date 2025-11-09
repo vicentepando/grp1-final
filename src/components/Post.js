@@ -49,6 +49,10 @@ class Post extends Component {
                     <Text>{this.state.like ? "Sacar like" : "likear"}</Text>
                 </Pressable>
 
+                <Pressable onPress={() => this.props.irAComentario({data: this.props })}>
+                    <Text>ir a comentarios </Text>
+                </Pressable>
+
             </View>
         )
     }
