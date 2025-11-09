@@ -37,7 +37,7 @@ export class Home extends Component {
     return (
       <View>
         <Text>Home</Text>
-        <FlatList data={this.state.posts} keyExtractor={(item) => item.id} renderItem={({item}) => <Post data={item.data} id={item.id} irAComentario={(data) => this.irAComentario(data)}/>}/>
+        <FlatList data={this.state.posts} keyExtractor={(item) => item.id} renderItem={({item}) => <Post data={item.data} id={item.id} irAComentario={(data) => this.irAComentario(data)} home= {true}/>}/>
       </View>
     )
   }

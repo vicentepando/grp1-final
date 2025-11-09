@@ -4,6 +4,7 @@ import { db } from '../firebase/config';
 import { auth } from '../firebase/config';
 import firebase from 'firebase/app';
 
+
 class Post extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ class Post extends Component {
         console.log(this.props)
         if (this.props.data.likes.includes(auth.currentUser.email)) {
             this.setState({ like: true })
-        } 
+        }
 
     }
     likear() {
@@ -45,14 +46,22 @@ class Post extends Component {
                 <Text>{this.props.data.texto}</Text>
                 <Text>{this.props.data.owner}</Text>
                 <Text>{this.props.data.likes.length}</Text>
-                <Pressable onPress={() => this.likear()}>
-                    <Text>{this.state.like ? "Sacar like" : "likear"}</Text>
-                </Pressable>
+                {this.props.home ?
+                    <View>
+                        <Pressable onPress={() => this.likear()}>
+                            <Text>{this.state.like ? "Sacar like" : "likear"}</Text>
+                        </Pressable>
 
-                <Pressable onPress={() => this.props.irAComentario({data: this.props })}>
-                    <Text>ir a comentarios </Text>
-                </Pressable>
+                        <Pressable onPress={() => this.props.irAComentario({ data: this.props })}>
+                            <Text>ir a comentarios </Text>
+                        </Pressable>
+                    </View>
 
+                    :
+                    <Pressable onPress={() => console.log("a")}>
+                        <Text>borrar posteo </Text>
+                    </Pressable>
+                }
             </View>
         )
     }
