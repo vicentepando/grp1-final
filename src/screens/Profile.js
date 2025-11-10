@@ -27,11 +27,11 @@ export class Profile extends Component {
         }); 
        });
 
-       //ESTE ESTA TIRANDO ERROR: 
+  
       console.log(auth.currentUser.email);
       db.collection('posts').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
         let posts = [];
-        console.log(docs.length); // preguntarle a maria porque esto  trae undifined en el console log de profile. Cuando borramos el .where, los documentos llegan bien 
+        console.log(docs.length); 
         docs.forEach(doc => {
           posts.push({
             id: doc.id,
