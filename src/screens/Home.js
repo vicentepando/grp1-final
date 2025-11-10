@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { db } from '../firebase/config';
 import Post from '../components/Post';
 
+
 export class Home extends Component {
   constructor(props) {
     super(props);

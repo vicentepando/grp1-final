@@ -1,4 +1,4 @@
-import { Text, View, FlatList, Pressable} from 'react-native'
+import { Text, View, FlatList, Image, Pressable, StyleSheet } from 'react-native';
 import React, { Component } from 'react'
 import { db } from '../firebase/config';
 import { auth } from '../firebase/config';
@@ -79,6 +79,147 @@ export class Profile extends Component {
       </View>
     )
   }
+  
 }
+
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 20,
+  },
+
+  profileHeader: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+
+  avatar: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: '#e6e6ea',
+  },
+
+  username: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#000',
+    marginTop: 12,
+  },
+
+  bio: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    marginTop: 6,
+    paddingHorizontal: 10,
+  },
+
+  statsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginTop: 16,
+  },
+
+  statBox: {
+    alignItems: 'center',
+  },
+
+  statNumber: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
+  },
+
+  statLabel: {
+    fontSize: 12,
+    color: '#666',
+  },
+
+  actionsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+  },
+
+  editButton: {
+    flex: 1,
+    backgroundColor: '#007AFF',
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginRight: 8,
+  },
+
+  logoutButton: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#007AFF',
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+
+  editButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+
+  logoutButtonText: {
+    color: '#007AFF',
+    fontWeight: '600',
+  },
+
+  postsList: {
+    marginTop: 18,
+    flex: 1,
+  },
+
+  postCard: {
+    backgroundColor: '#f9f9fb',
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
+  separator: {
+    height: 12,
+  },
+
+  emptyContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+  },
+
+  emptyTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    marginTop: 8,
+    textAlign: 'center',
+  },
+
+  emptyMessage: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    marginTop: 6,
+  },
+});
+
+
 
 export default Profile
