@@ -34,14 +34,15 @@ export default class Login extends Component {
                 this.setState({ email: '', pass: '', error: '' });
             })
             .catch(() => {
-                setError('Email o contraseña incorrectos.');
+                this.setState({ error: 'Email o contraseña incorrectos.' });
             });
     }
+                
     render() {
 
 
-        return (
-            <View style={styles.container}>
+                return(
+            <View style = { styles.container } >
                 <Text style={styles.title}>Iniciar sesión</Text>
 
                 <TextInput
@@ -61,16 +62,17 @@ export default class Login extends Component {
                     style={styles.input}
                 />
 
-                {this.state.error ? <Text style={styles.error}>{this.state.error}</Text> : null}
+                { this.state.error ? <Text style={styles.error}>{this.state.error}</Text> : null
+            }
 
-                <Pressable onPress={() => this.handleLogin()} style={styles.btn}>
-                    <Text style={styles.btnText}>Entrar</Text>
+            < Pressable onPress = {() => this.handleLogin()} style = { styles.btn } >
+                <Text style={styles.btnText}>Entrar</Text>
                 </Pressable>
 
-                <Pressable onPress={() => this.props.navigation.navigate('Register')} style={{ marginTop: 12 }}>
-                    <Text style={styles.link}>¿No tenés cuenta? Registrate</Text>
-                </Pressable>
-            </View>
+    <Pressable onPress={() => this.props.navigation.navigate('Register')} style={{ marginTop: 12 }}>
+        <Text style={styles.link}>¿No tenés cuenta? Registrate</Text>
+    </Pressable>
+            </View >
         );
     }
 }

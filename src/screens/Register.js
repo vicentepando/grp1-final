@@ -40,7 +40,7 @@ export default class Register extends Component {
                 this.props.navigation.navigate('Login');
             })
             .catch(() => {
-                setError('Email o contraseña incorrectos.');
+                this.setState({ error: 'Email o contraseña incorrectos.' });
             });
     }
     render() {
