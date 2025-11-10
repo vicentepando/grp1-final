@@ -63,22 +63,31 @@ export class Profile extends Component {
       })
     }
 
-  render() {
-    return (
-      <View>
-        <Text>Profile</Text>
-        <Text>{this.state.user.email}</Text>
-        <Text>{this.state.user.username}</Text>
-
-
-        <FlatList data= {this.state.posts} keyExtractor={(item) => item.id} renderItem={({item}) => <Post data={item.data} id={item.id} home={false}/>  }/>
-        
-        <Pressable onPress={() => this.logout()}>
-          <Text>Logout </Text>
-        </Pressable>
-      </View>
-    )
-  }
+    render() {
+      return (
+        <View style={styles.container}>
+          <View style={styles.profileHeader}>
+            <Text style={styles.username}>{this.state.user.username}</Text>
+            <Text>{this.state.user.email}</Text>
+          </View>
+    
+          <FlatList
+            style={styles.postsList}
+            data={this.state.posts}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.postCard}>
+                <Post data={item.data} id={item.id} home={false} />
+              </View>
+            )}
+          />
+    
+          <Pressable style={styles.logoutButton} onPress={() => this.logout()}>
+            <Text style={styles.logoutButtonText}>Logout</Text>
+          </Pressable>
+        </View>
+      );
+    }
   
 }
 
@@ -96,13 +105,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  avatar: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    backgroundColor: '#e6e6ea',
-  },
-
+ 
   username: {
     fontSize: 20,
     fontWeight: '600',

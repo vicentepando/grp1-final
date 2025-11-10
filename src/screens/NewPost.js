@@ -37,39 +37,67 @@ export class NewPost extends Component {
   }
   render() {
     return (
-      <View>
-        <Text>Crear nuevo posteo</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Crear nuevo posteo</Text>
+
         <TextInput
           placeholder="Escribir posteo"
           value={this.state.texto}
-          onChangeText={text => this.setState({ texto: text })}
+          onChangeText={(text) => this.setState({ texto: text })}
           style={styles.input}
+          multiline={true}
         />
+
+        {this.state.error ? (
+          <Text style={styles.error}>{this.state.error}</Text>
+        ) : null}
+
         <Pressable onPress={() => this.crearPosteo()} style={styles.btn}>
           <Text style={styles.btnText}>Crear posteo</Text>
         </Pressable>
-        {this.state.error ? <Text style={styles.error}>{this.state.error}</Text> : null}
       </View>
-    )
+    );
   }
 }
 
 export default NewPost
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#fff'
-    },
-    title: {
-        fontSize: 24, marginBottom: 20, textAlign: 'center', fontWeight: '600'
-    },
-    input: {
-        borderWidth: 1, borderColor: '#ccc', padding: 12, borderRadius: 8, marginBottom: 12
-    },
-    btn: {
-        backgroundColor: '#007AFF', padding: 14, borderRadius: 8, alignItems: 'center', marginTop: 10
-    },
-    btnText: { color: '#fff', fontWeight: '600' },
-    link: { color: '#007AFF', textAlign: 'center' },
-    error: { color: 'red', marginBottom: 8, textAlign: 'center' }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 20,
+    justifyContent: 'flex-start',
+  },
+  title: {
+    fontSize: 22,
+    marginBottom: 16,
+    textAlign: 'left',
+    fontWeight: '600',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 8,
+    minHeight: 80,        
+    textAlignVertical: 'top',
+  },
+  btn: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  btnText: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  error: {
+    color: 'red',
+    marginBottom: 4,
+    textAlign: 'left',
+  },
 });
